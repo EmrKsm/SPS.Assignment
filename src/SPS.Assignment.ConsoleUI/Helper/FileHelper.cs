@@ -4,21 +4,23 @@ namespace SPS.Assignment.ConsoleUI.Helper
 {
     public class FileHelper
     {
-        public static IEnumerable<string> GetLines()
+        public static async Task<IEnumerable<string>> GetLines()
         {
             string fileName = $@"{Directory.GetParent(Environment.CurrentDirectory).Parent.Parent}\poker.txt";
-            List<string> lines = new();
+            var lines = await File.ReadAllLinesAsync(fileName);
 
-            const int BufferSize = 128;
-            using (var fileStream = File.OpenRead(fileName))
-            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    lines.Add(line);
-                }
-            }
+            //List<string> lines = new();
+            //const int BufferSize = 128;
+
+            //using (var fileStream = File.OpenRead(fileName))
+            //using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+            //{
+            //    string line;
+            //    while ((line = streamReader.ReadLine()) != null)
+            //    {
+            //        lines.Add(line);
+            //    }
+            //}
 
             return lines;
         }

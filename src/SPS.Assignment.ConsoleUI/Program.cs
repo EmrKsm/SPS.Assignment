@@ -1,7 +1,8 @@
 ﻿IHandCalculator handStatusCalculator = new HandStatusCalculator();
 IDealer dealer = new Dealer(handStatusCalculator);
 
-var rounds = dealer.DealCards(FileHelper.GetLines());
+var lines = await Task.FromResult(FileHelper.GetLines()).Result;
+var rounds = dealer.DealCards(lines);
 int player1WinCount = 0, player2WinCount = 0;
 
 foreach (var round in rounds)
