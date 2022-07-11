@@ -18,13 +18,13 @@
         }
 
         [Test]
-        public void CompareTo_FourWithJack_ReturnTrue()
+        public void CompareTo_FourShoudLowerThanJack_ReturnTrue()
         {
             Assert.That(card2.CompareTo(card3), Is.LessThan(0));
         }
 
         [Test]
-        public void CompareTo_FiveWithFour_ReturnTrue()
+        public void CompareTo_FiveShouldBiggerThanFour_ReturnTrue()
         {
             Assert.That(card1.CompareTo(card4), Is.GreaterThan(0));
         }
@@ -44,7 +44,7 @@
         }
 
         [Test]
-        public void Equals_SameCards_ReturnTrue()
+        public void Equals_ShouldSameCards_ReturnTrue()
         {
             Assert.That(card2.Equals(card4), Is.True);
         }

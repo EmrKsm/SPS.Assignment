@@ -42,13 +42,13 @@
         }
 
         [Test]
-        public void CompareTo_FlushWithStraight_ReturnTrue()
+        public void CompareTo_FlushShouldBiggerThanStraight_ReturnTrue()
         {
             Assert.That(hand1.CompareTo(hand2), Is.GreaterThan(0));
         }
 
         [Test]
-        public void CompareTo_FlushWithHighFlush_ReturnTrue()
+        public void CompareTo_FlushShouldLowerThanHighFlush_ReturnTrue()
         {
             Assert.That(hand3.CompareTo(hand2), Is.GreaterThan(0));
         }
@@ -86,7 +86,7 @@
         }
 
         [Test]
-        public void CompareTo_FlushWithHighFlush_ReturnTrue()
+        public void Equals_FlushAndHighFlushShouldHasSameStatus_ReturnTrue()
         {
             Assert.That(hand1, Is.EqualTo(hand3));
         }
